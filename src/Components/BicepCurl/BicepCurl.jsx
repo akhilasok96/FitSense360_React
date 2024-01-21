@@ -29,7 +29,7 @@ export const BicepCurl = () => {
 
     socket.onopen = () => {
       console.log("WebSocket Connected");
-      const interval = setInterval(sendFrame, 50);
+      const interval = setInterval(sendFrame, 100);
       return () => clearInterval(interval);
     };
 
@@ -57,13 +57,35 @@ export const BicepCurl = () => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "yellow";
+    ctx.strokeStyle = "red";
+    ctx.lineWidth = 2;
 
-    keypoints.forEach((point) => {
-      const [x, y] = point;
-      ctx.beginPath();
-      ctx.arc(x * canvas.width, y * canvas.height, 5, 0, 2 * Math.PI);
-      ctx.fill();
-    });
+    if (keypoints.length > 0) {
+      // Draw keypoints
+      for (let i = 11; i < keypoints.length; i++) {
+        const [x, y] = keypoints[i];
+        ctx.beginPath();
+        ctx.arc(x * canvas.width, y * canvas.height, 5, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      // Draw skeleton for left arm (shoulder -> elbow -> wrist)
+      const drawLine = (keypoint1, keypoint2) => {
+        if (keypoint1 && keypoint2) {
+          ctx.beginPath();
+          ctx.moveTo(keypoint1[0] * canvas.width, keypoint1[1] * canvas.height);
+          ctx.lineTo(keypoint2[0] * canvas.width, keypoint2[1] * canvas.height);
+          ctx.stroke();
+        }
+      };
+
+      const leftShoulder = keypoints[11];
+      const leftElbow = keypoints[13];
+      const leftWrist = keypoints[15];
+
+      drawLine(leftShoulder, leftElbow);
+      drawLine(leftElbow, leftWrist);
+    }
   }, [keypoints]);
 
   return (
