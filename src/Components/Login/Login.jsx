@@ -50,11 +50,15 @@ export const Login = () => {
             </div>
             <div className='input-field'>
               <FontAwesomeIcon icon={faEnvelope} />
-              <input type='email' id='email' placeholder='Email' />
+              <input type='email' id='signup-email' placeholder='Email' />
             </div>
             <div className='input-field'>
               <FontAwesomeIcon icon={faLock} />
-              <input type='password' id='password' placeholder='Password' />
+              <input
+                type='password'
+                id='signup-password'
+                placeholder='Password'
+              />
             </div>
             <input type='submit' value={"Sign Up"} className='btn solid' />
             <div className='social-media'>
