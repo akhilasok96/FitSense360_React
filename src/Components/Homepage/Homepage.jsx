@@ -1,9 +1,18 @@
-import React, { useState } from "react";
 import "./Homepage.css";
 import { Box } from "@mui/material";
 
-export const Homepage = () => {
-  return <Box></Box>;
-};
+import { Navbar } from "../Navbar/Navbar";
+import { HeroBanner } from "../HeroBanner/HeroBanner";
+import { SearchExercises } from "../SearchExercises/SearchExercises";
+import { Exercises } from "../Exercises/Exercises";
 
-export default Homepage;
+export const Homepage = () => {
+  return (
+    <Box>
+      <Navbar />
+      <HeroBanner />
+      <SearchExercises />
+      <Exercises />
+    </Box>
+  );
+};

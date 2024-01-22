@@ -1,4 +1,3 @@
-import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
@@ -21,7 +20,7 @@ export const Navbar = () => {
         <img
           src={dumbellIcon}
           alt='dumbell_logo.png'
-          style={{ width: "48px", height: "48px", margin: "0px 20px" }}
+          style={{ width: "48px", height: "48px", margin: "0px 40px" }}
         />
       </Link>
       <Stack direction='row' gap='40px' fontSize='24px' alignItems='flex-end'>
