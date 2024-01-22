@@ -6,7 +6,7 @@ import "./Login.css";
 import { useState } from "react";
 
 import workoutImage from "../Assets/run.svg";
-import meditation from "../Assets/meditation.svg";
+import curlImage from "../Assets/workout.svg";
 
 export const Login = () => {
   const [isSignUpMode, setIsSignUpMode] = useState(false);
@@ -85,7 +85,7 @@ export const Login = () => {
               Sign Up
             </button>
           </div>
-          <img src={meditation} className='image' alt='image_logo' />
+          <img src={curlImage} className='image' alt='image_logo' />
         </div>
 
         <div className='panel right-panel'>

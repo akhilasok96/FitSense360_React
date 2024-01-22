@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState } from "react";
+import { useRef, useCallback, useEffect, useState } from "react";
 import Webcam from "react-webcam";
 import "./BicepCurl.css";
 
@@ -57,7 +57,7 @@ export const BicepCurl = () => {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "yellow";
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "white";
     ctx.lineWidth = 2;
 
     if (keypoints.length > 0) {
@@ -128,8 +128,12 @@ export const BicepCurl = () => {
           zIndex: 2,
         }}
       >
-        <p>Counter: {counter}</p>
-        <p>Stage: {stage}</p>
+        <h2>
+          Counter: <p>{counter}</p>
+        </h2>
+        <h2>
+          Stage: <p>{stage}</p>
+        </h2>
       </div>
     </div>
   );
