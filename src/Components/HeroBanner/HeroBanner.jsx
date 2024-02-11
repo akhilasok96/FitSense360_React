@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 
 import "./HeroBanner.css";
 
@@ -11,7 +11,7 @@ export const HeroBanner = () => {
       position='relative'
       p='20px'
     >
-      <Typography color='#FF2625' fontWeight='600' fontSize='26px'>
+      <Typography color='#FF2625' fontWeight='600' fontSize='32px'>
         FitSense 360
       </Typography>
       <Typography
@@ -23,15 +23,17 @@ export const HeroBanner = () => {
         Sweat, Smile <br />
         And Repeat
       </Typography>
-      <Typography fontSize='22px' fontFamily='Alegreya' lineHeight='35px'>
-        Check out the most effective exercises personalized to you
+      <Typography fontSize='22px' mb={4} fontFamily='Poppins' lineHeight='35px'>
+        Check out personalized exercises
       </Typography>
       <Stack>
-        <a
+        <Button
           href='#exercises'
-          style={{
+          sx={{
             marginTop: "45px",
             textDecoration: "none",
+            borderColor: "#FF2625",
+            border: "1px solid",
             width: "200px",
             textAlign: "center",
             background: "#FF2625",
@@ -40,10 +42,15 @@ export const HeroBanner = () => {
             textTransform: "none",
             color: "white",
             borderRadius: "4px",
+            "&:hover": {
+              bgcolor: "white",
+              color: "#FF2625",
+              borderColor: "#FF2625",
+            },
           }}
         >
           Explore Exercises
-        </a>
+        </Button>
       </Stack>
       <Typography
         fontWeight={600}

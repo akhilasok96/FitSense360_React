@@ -4,10 +4,11 @@ import { BicepCurl } from "../Components/BicepCurl/BicepCurl";
 import { Navbar } from "../Components/Navbar/Navbar";
 import { Homepage } from "../Components/Homepage/Homepage";
 import { Box } from "@mui/material";
+import "../App.css";
 
 export const Views = () => {
   return (
-    <Box width='400px' sx={{ width: { xl: "1488px" } }} m='auto'>
+    <Box width='400px' sx={{ width: { xl: "auto" } }} m='auto'>
       <div style={{ minHeight: "100vh" }}>
         <Routes>
           <Route path='/' element={<Login />} />
