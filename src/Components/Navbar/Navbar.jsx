@@ -2,9 +2,25 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { Stack } from "@mui/material";
 
+import { useUserAuth } from "../../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
+
 import dumbellIcon from "../Assets/dumbell_icon.png";
 
 export const Navbar = () => {
+  const { logOut } = useUserAuth();
+
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   return (
     <Stack
       direction='row'
@@ -16,7 +32,7 @@ export const Navbar = () => {
       }}
       px='20px'
     >
-      <Link to='/'>
+      <Link to='/home'>
         <img
           src={dumbellIcon}
           alt='dumbell_logo.png'
@@ -25,7 +41,7 @@ export const Navbar = () => {
       </Link>
       <Stack direction='row' gap='40px' fontSize='24px' alignItems='flex-end'>
         <Link
-          to='/'
+          to='/home'
           style={{
             textDecoration: "none",
             color: "#3A1212",
@@ -39,6 +55,13 @@ export const Navbar = () => {
           style={{ textDecoration: "none", color: "#3A1212" }}
         >
           Exercises
+        </a>
+        <a
+          className='logout-btn'
+          style={{ textDecoration: "none", color: "#3A1212" }}
+          onClick={handleLogout}
+        >
+          Logout
         </a>
       </Stack>
     </Stack>
