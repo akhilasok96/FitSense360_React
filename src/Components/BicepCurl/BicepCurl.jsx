@@ -35,9 +35,13 @@ export const BicepCurl = () => {
 
     socket.onmessage = (event) => {
       const message = JSON.parse(event.data);
+      console.log(message.voice_prompt);
       setKeypoints(message.keypoints);
       setCounter(message.counter);
       setStage(message.stage);
+      if (message.voice_prompt && message.voice_prompt !== "") {
+        speak(message.voice_prompt);
+      }
     };
 
     socket.onclose = () => console.log("WebSocket Disconnected");
@@ -87,6 +91,15 @@ export const BicepCurl = () => {
       drawLine(leftElbow, leftWrist);
     }
   }, [keypoints]);
+
+  // Function to play voice prompts
+  const speak = (text) => {
+    if (text !== "") {
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "en-US";
+      window.speechSynthesis.speak(speech);
+    }
+  };
 
   return (
     <div
