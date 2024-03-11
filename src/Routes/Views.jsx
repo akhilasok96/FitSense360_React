@@ -7,6 +7,7 @@ import { Box } from "@mui/material";
 import "../App.css";
 import { UserAuthContextProvider } from "../context/UserAuthContext";
 import ProtectedRoute from "../context/ProtectedRoutes";
+import { Squat } from "../Components/Squats/Squats";
 
 export const Views = () => {
   return (
@@ -36,6 +37,15 @@ export const Views = () => {
               element={
                 <ProtectedRoute>
                   <BicepCurl />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path='/squats'
+              element={
+                <ProtectedRoute>
+                  <Squat />
                 </ProtectedRoute>
               }
             />

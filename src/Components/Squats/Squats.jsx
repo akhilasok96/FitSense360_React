@@ -1,15 +1,15 @@
 import { useRef, useCallback, useEffect, useState } from "react";
 import Webcam from "react-webcam";
-import "./BicepCurl.css";
+import "./Squats.css";
 
-export const BicepCurl = () => {
+export const Squat = () => {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const [keypoints, setKeypoints] = useState([]);
   const [counter, setCounter] = useState(0);
   const [stage, setStage] = useState("Not Started");
   const WEBSOCKET_URL = "ws://127.0.0.1:8000/ws/stream/";
-  let socket = null;
+  let socket = useRef(null);
 
   const capture = useCallback(() => {
     if (webcamRef.current) {
@@ -19,24 +19,31 @@ export const BicepCurl = () => {
 
   const sendFrame = useCallback(() => {
     const frame = capture();
-    if (frame && socket && socket.readyState === WebSocket.OPEN) {
-      socket.send(JSON.stringify({ data: frame, exercise_type: "bicep_curl" }));
+    if (
+      frame &&
+      socket.current &&
+      socket.current.readyState === WebSocket.OPEN
+    ) {
+      socket.current.send(
+        JSON.stringify({ data: frame, exercise_type: "squat" })
+      );
     }
   }, [capture]);
 
   useEffect(() => {
-    socket = new WebSocket(WEBSOCKET_URL);
+    socket.current = new WebSocket(WEBSOCKET_URL);
 
-    socket.onopen = () => {
+    socket.current.onopen = () => {
       console.log("WebSocket Connected");
       const interval = setInterval(sendFrame, 100);
       return () => clearInterval(interval);
     };
 
-    socket.onmessage = (event) => {
+    socket.current.onmessage = (event) => {
       const message = JSON.parse(event.data);
       console.log(message.voice_prompt);
       setKeypoints(message.keypoints);
+      console.log(keypoints);
       setCounter(message.counter);
       setStage(message.stage);
       if (message.voice_prompt && message.voice_prompt !== "") {
@@ -44,11 +51,11 @@ export const BicepCurl = () => {
       }
     };
 
-    socket.onclose = () => console.log("WebSocket Disconnected");
+    socket.current.onclose = () => console.log("WebSocket Disconnected");
 
     return () => {
-      if (socket) {
-        socket.close();
+      if (socket.current) {
+        socket.current.close();
       }
     };
   }, [sendFrame]);
@@ -73,7 +80,7 @@ export const BicepCurl = () => {
         ctx.fill();
       }
 
-      // Draw skeleton for left arm (shoulder -> elbow -> wrist)
+      // Draw skeleton for left arm (left and right leg)
       const drawLine = (keypoint1, keypoint2) => {
         if (keypoint1 && keypoint2) {
           ctx.beginPath();
@@ -83,12 +90,12 @@ export const BicepCurl = () => {
         }
       };
 
-      const leftShoulder = keypoints[11];
-      const leftElbow = keypoints[13];
-      const leftWrist = keypoints[15];
+      const leftHip = keypoints[23];
+      const leftKnee = keypoints[25];
+      const leftAnkle = keypoints[27];
 
-      drawLine(leftShoulder, leftElbow);
-      drawLine(leftElbow, leftWrist);
+      drawLine(leftHip, leftKnee);
+      drawLine(leftKnee, leftAnkle);
     }
   }, [keypoints]);
 
@@ -102,7 +109,7 @@ export const BicepCurl = () => {
 
   return (
     <div
-      className='bicep_container'
+      className='squat_container'
       style={{ position: "relative", width: 640, height: 480 }}
     >
       <Webcam
@@ -131,7 +138,7 @@ export const BicepCurl = () => {
         }}
       />
       <div
-        className='curl-info'
+        className='squat-info'
         style={{
           position: "absolute",
           bottom: 20,
@@ -151,4 +158,4 @@ export const BicepCurl = () => {
   );
 };
 
-export default BicepCurl;
+export default Squat;

@@ -236,8 +236,8 @@ export const Login = () => {
           <div className='content'>
             <h3>New here ?</h3>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
-              unde, quisquam optio minus iure cumque facilis dolorum fugiat?
+              Create an account to start your personalized workout journey
+              today.
             </p>
             <button
               className='btn transparent'
@@ -252,11 +252,8 @@ export const Login = () => {
 
         <div className='panel right-panel'>
           <div className='content'>
-            <h3>One of us ?</h3>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit
-              unde, quisquam optio minus iure cumque facilis dolorum fugiat?
-            </p>
+            <h3> Already part of our community?</h3>
+            <p>Log in to continue your fitness journey.</p>
             <button
               className='btn transparent'
               id='sign-up-btn'
