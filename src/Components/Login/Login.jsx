@@ -124,13 +124,13 @@ export const Login = () => {
   };
 
   return (
-    <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
-      <div className='forms-container'>
+    <div className={`container-login ${isSignUpMode ? "sign-up-mode" : ""}`}>
+      <div className='forms-container-login'>
         <div className='signin-signup'>
           <form onSubmit={handleSubmitLogin} action='' className='sign-in-form'>
             <p className={errMsgLog ? "errorTitle" : "hide"}>{errMsgLog}</p>
-            <h2 className='title'>Sign In</h2>
-            <div className='input-field'>
+            <h2 className='login-title'>Sign In</h2>
+            <div className='login-input-field'>
               <FontAwesomeIcon icon={faUser} />
               <input
                 type='email'
@@ -142,7 +142,7 @@ export const Login = () => {
                 required
               />
             </div>
-            <div className='input-field'>
+            <div className='login-input-field'>
               <FontAwesomeIcon icon={faLock} />
               <input
                 type='password'
@@ -153,7 +153,7 @@ export const Login = () => {
                 required
               />
             </div>
-            <input type='submit' value={"Login"} className='btn solid' />
+            <input type='submit' value={"Login"} className='login-btn solid' />
             <p className='social-text'>Or sign in with Google</p>
             <div className='social-media'>
               <a onClick={handleGoogleSignIn} href='#' className='social-icon'>
@@ -163,8 +163,8 @@ export const Login = () => {
           </form>
 
           <form onSubmit={handleSubmit} className='sign-up-form'>
-            <h2 className='title'>Sign Up</h2>
-            <div className='input-field'>
+            <h2 className='login-title'>Sign Up</h2>
+            <div className='login-input-field'>
               <FontAwesomeIcon icon={faUser} />
               <input
                 type='text'
@@ -181,7 +181,7 @@ export const Login = () => {
                 onBlur={() => setUserFocus(false)}
               />
             </div>
-            <div className='input-field'>
+            <div className='login-input-field'>
               <FontAwesomeIcon icon={faEnvelope} />
               <input
                 type='email'
@@ -197,7 +197,7 @@ export const Login = () => {
                 required
               />
             </div>
-            <div className='input-field'>
+            <div className='login-input-field'>
               <FontAwesomeIcon icon={faLock} />
               <input
                 type='password'
@@ -216,18 +216,13 @@ export const Login = () => {
             <button
               type='submit'
               value={"Sign Up"}
-              className='btn solid'
+              className='login-btn solid'
               disabled={
                 !validPassword || !validEmail || !validName ? true : false
               }
             >
               Sign Up
             </button>
-            <div className='social-media'>
-              <a href='#' className='social-icon'>
-                <FontAwesomeIcon className='google-icon' icon={faGoogle} />
-              </a>
-            </div>
           </form>
         </div>
       </div>
@@ -240,7 +235,7 @@ export const Login = () => {
               today.
             </p>
             <button
-              className='btn transparent'
+              className='panel-btn login-btn transparent'
               id='sign-up-btn'
               onClick={handleSignUpClick}
             >
@@ -255,7 +250,7 @@ export const Login = () => {
             <h3> Already part of our community?</h3>
             <p>Log in to continue your fitness journey.</p>
             <button
-              className='btn transparent'
+              className='panel-btn login-btn transparent'
               id='sign-up-btn'
               onClick={handleSignInClick}
             >
