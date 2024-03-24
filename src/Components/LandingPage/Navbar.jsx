@@ -1,15 +1,17 @@
 import logo from "../assets/logo_main.png";
-
+import { useState } from "react";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const [isModalShown, setIsModalShown] = useState(false);
   const { logOut } = useUserAuth();
 
   const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
+      setIsModalShown(false);
       await logOut();
       navigate("/");
     } catch (err) {
@@ -64,13 +66,59 @@ const Navbar = () => {
               </li>
             </ul>
             <form className='d-flex ms-md-4' role='search'>
-              <button onClick={handleLogout} className='btn1' type='submit'>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalShown(true);
+                }}
+                className='btn1'
+              >
                 Logout
               </button>
             </form>
           </div>
         </div>
       </nav>
+      {isModalShown && (
+        <div className='modal' tabIndex='-1' style={{ display: "block" }}>
+          <div className='modal-dialog'>
+            <div className='modal-content'>
+              <div className='modal-header'>
+                <h5 className='modal-title'>
+                  Are you sure you want to logout?
+                </h5>
+                <button
+                  type='button'
+                  className='btn-close'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsModalShown(false);
+                  }}
+                ></button>
+              </div>
+              <div className='modal-footer'>
+                <button
+                  type='button'
+                  className='btn btn-secondary'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsModalShown(false);
+                  }}
+                >
+                  Close
+                </button>
+                <button
+                  type='button'
+                  className='btn btn-danger'
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
