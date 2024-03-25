@@ -618,3 +618,101 @@ a:focus {
 }
 
 /*********************** Footer ***********************************/
+
+/*********************** Logout Popup ***********************************/
+
+.btn-logout-dialouge{
+    color: #fff;
+    background: var(--main-color);
+}
+
+.btn-logout-dialouge:hover{
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    transition: 0.2s linear;
+}
+
+.btn-close-dialouge{
+    color: #fff;
+    background: var(--darklight-color);
+}
+
+.btn-close-dialouge:hover{
+    color: var(--dark-color);
+    border: 1px solid var(--darklight-color);
+    transition: 0.2s linear;
+}
+/*********************** logout Popup ***********************************/
+
+/*********************** User Info Form ***********************************/
+
+.user-info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.box-area{
+    width: 930px;
+}
+
+.left-info-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #ea6637;
+}
+
+.left-info-box img{
+    width: 250px;
+}
+
+.left-info-box p{
+    font-weight: 300;
+}
+
+.left-info-box small{
+    width: 17rem;
+}
+
+.right-info-box{
+    padding: 40px 30px 40px 40px;
+}
+
+.right-info-box ::placeholder{
+    font-size: 16px;
+}
+
+.right-info-box .btn-user-info{
+    background: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.right-info-box .btn-user-info:hover {
+    cursor: pointer;
+    background: var(--primary-color);
+    color: #fff;
+    border: 1px solid var(--primary-color);
+    transform: scale(1.02);
+    transition: 0.3s linear;
+}
+
+@media only screen and (max-width: 768px){
+    .box-area{
+        margin: 0 10px;
+    }
+
+    .left-info-box{
+        height: 100px;
+        overflow: hidden;
+    }
+
+    .right-info-box{
+        padding: 20px;
+    }
+}
+
+/*********************** User Info Form ***********************************/

@@ -6,12 +6,14 @@ import "../App.css";
 import { UserAuthContextProvider } from "../context/UserAuthContext";
 import ProtectedRoute from "../context/ProtectedRoutes";
 import { Squat } from "../Components/Squats/Squats";
+import UserInfoForm from "../Components/UserInfoForm/UserInfoForm";
 
 export const Views = () => {
   return (
     <UserAuthContextProvider>
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route path='/info' element={<UserInfoForm />} />
         <Route
           path='/home'
           element={

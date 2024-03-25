@@ -99,7 +99,7 @@ const Navbar = () => {
               <div className='modal-footer'>
                 <button
                   type='button'
-                  className='btn btn-secondary'
+                  className='btn btn-close-dialouge'
                   onClick={(e) => {
                     e.preventDefault();
                     setIsModalShown(false);
@@ -109,7 +109,7 @@ const Navbar = () => {
                 </button>
                 <button
                   type='button'
-                  className='btn btn-danger'
+                  className='btn btn-logout-dialouge'
                   onClick={handleLogout}
                 >
                   Logout

@@ -8,7 +8,6 @@ import Services from "../LandingPage/Services";
 import BestPlan from "../LandingPage/BestPlan";
 import Testimonial from "../LandingPage/Testimonial";
 import Footer from "../LandingPage/Footer";
-import LogoutPopup from "../LandingPage/LogoutPopup";
 
 export const Homepage = () => {
   return (
