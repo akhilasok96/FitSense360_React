@@ -77,13 +77,35 @@ export const Login = () => {
       return;
     } else {
       try {
-        await signUp(email, password).then((res) => {
+        // await signUp(email, password).then((res) => {
+        //   const user = res.user;
+        //   updateProfile(user, {
+        //     displayName: userName,
+        //   });
+        // });
+        // navigate("/info");
+        await signUp(email, password).then(async (res) => {
           const user = res.user;
-          updateProfile(user, {
-            displayName: userName,
-          });
+          // Update profile and then reload the user object
+          await updateProfile(user, { displayName: userName })
+            .then(() => {
+              user
+                .reload()
+                .then(() => {
+                  navigate("/info");
+                })
+                .catch((error) => {
+                  // Handle error in reloading user
+                  console.error("Error reloading user: ", error);
+                  setErrMsg("Failed to reload user information.");
+                });
+            })
+            .catch((error) => {
+              // Handle error in updating profile
+              console.error("Error updating profile: ", error);
+              setErrMsg("Failed to update user profile.");
+            });
         });
-        navigate("/home");
       } catch (err) {
         setErrMsg(err.message);
       }
