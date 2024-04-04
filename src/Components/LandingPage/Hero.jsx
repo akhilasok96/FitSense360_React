@@ -1,6 +1,7 @@
 import playBtn from "../assets/play.png";
 // import mainImg from "../assets/main_image1.png";
 // import mainImg2 from "../assets/main_image2.png";
+import { useUserAuth } from "../../context/UserAuthContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,6 +11,7 @@ import "swiper/css/scrollbar";
 import { Autoplay, Scrollbar } from "swiper/modules";
 
 const Hero = () => {
+  const { user } = useUserAuth();
   return (
     <>
       {/* ********************************** */}
@@ -30,9 +32,12 @@ const Hero = () => {
               <div className='row gx-0'>
                 <div className='col-md-6'>
                   <div className='Hero-col1'>
-                    <h1>
+                    {/* <h1>
                       Get A <span>Healthy</span> Body With{" "}
                       <span>Personalized</span> Exercises
+                    </h1> */}
+                    <h1>
+                      Welcome, <span>{user.displayName}</span>
                     </h1>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.

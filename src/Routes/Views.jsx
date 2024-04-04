@@ -7,12 +7,31 @@ import { UserAuthContextProvider } from "../context/UserAuthContext";
 import ProtectedRoute from "../context/ProtectedRoutes";
 import { Squat } from "../Components/Squats/Squats";
 import UserInfoForm from "../Components/UserInfoForm/UserInfoForm";
+import "bootstrap/dist/css/bootstrap.css";
+import { WorkoutCardsPage } from "../Components/WorkoutCardsPage/WorkoutCardsPage";
+import CalorieForm from "../Components/CalorieForm/CalorieForm";
 
 export const Views = () => {
   return (
     <UserAuthContextProvider>
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route
+          path='/work'
+          element={
+            <ProtectedRoute>
+              <WorkoutCardsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/calorie'
+          element={
+            <ProtectedRoute>
+              <CalorieForm />
+            </ProtectedRoute>
+          }
+        />
         <Route path='/info' element={<UserInfoForm />} />
         <Route
           path='/home'

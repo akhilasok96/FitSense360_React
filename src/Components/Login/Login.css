@@ -168,17 +168,18 @@ input {
     font-weight: 600;
     margin: 10px 0;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.3s linear;
 }
 
 .login-btn:hover {
     background-color: #fff;
     color: #EA5232;
     border: 2px #EA5232 solid;
+    transition: 0.3s linear;
 }
 
 .panel-btn:hover{
-    color: #000;
+    color: #d7cbcb;
 }
 
 .sign-up-form button:disabled{

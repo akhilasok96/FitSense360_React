@@ -110,7 +110,7 @@ a:focus {
 }
 
 .Hero-col1 span {
-    color: #fff;
+    color: var(--main-color);
 }
 
 .Hero-col2 img {
@@ -716,3 +716,160 @@ a:focus {
 }
 
 /*********************** User Info Form ***********************************/
+
+/*********************** Exercise Cards ***********************************/
+
+.menu-col-mid {
+    padding: 1.5rem;
+    overflow-y: auto; 
+}
+
+.menu-col h2 {
+    font-size: 1.85rem;
+    font-weight: 600;
+}
+
+.menu-col {
+    box-shadow: 10px 10px 31px 5px rgba(212, 171, 171, 0.32);
+    margin: 1.8rem;
+    border-radius: 35px 37px 35px 35px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.menu-col img {
+    border-radius: 35px;
+}
+
+.menu-col h6 {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.menu-col-icon1 i {
+    font-size: 1.6rem;
+    padding: 0 0.3rem;
+    color: var(--primary-color);
+}
+
+.menu-col-icon2 i {
+    font-size: 2.5rem;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-top-left-radius: 30px;
+}
+
+.menu-col:hover{
+    cursor: pointer;
+    box-shadow: 12px 12px 38px 7px rgba(212, 171, 171, 0.32);
+    transform: scale(1.04);
+    transition: 0.3s linear;
+    color: #fff;
+    background-color: var(--darklight-color);
+}
+
+.menu-col:hover > img{
+    transition: 0.3s linear;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+
+.search-bar{
+    width: 60%;
+    margin-top: 2rem;
+    padding: 0.8rem;
+    border: 1px solid var(--main-color);
+    border-radius: 2rem;
+}
+
+.search-bar::placeholder{
+    font-size: 1.1rem;
+    letter-spacing: 0.8px;
+}
+
+.search-bar:focus{
+    box-shadow: 6px 6px 8px rgba(236, 133, 105, 0.2);
+    border: 1px solid var(--main-color);
+}
+
+.workout-title-detail{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-span{
+    letter-spacing: 0.8px;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.main-h2{
+    letter-spacing: 0.8px;
+    margin-top: 0.8rem;
+    font-size: 2rem;
+    font-weight: 400;
+    color-scheme: var(--dark-color);
+}
+
+.main-p{
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    color: #777676;
+    padding: 0.8rem 6 rem 0rem 0;
+    text-align: justify;
+}
+
+/*********************** Exercise Cards ***********************************/
+
+/*********************** Bicep Curl Page ***********************************/
+.bicep_container {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.bicep_container canvas,
+.bicep_container video {
+    border-radius: 20px;
+}
+
+.curl-info-stats h2 {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.curl-info-stats span{
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.curl-info{
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.exercise-info-tab{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.set-reps-buttons button{
+    width: 50%;
+    margin-right: 20px;
+}
+
+.set-reps-buttons{
+    width: 80%;
+}
+
+.buttons-group-wrapper{
+    display: flex;
+}
+/*********************** Bicep Curl Page ***********************************/
