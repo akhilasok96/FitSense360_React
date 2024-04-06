@@ -1,11 +1,24 @@
 import logo from "../assets/logo_main.png";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isModalShown, setIsModalShown] = useState(false);
   const { logOut } = useUserAuth();
+
+  const { user } = useUserAuth();
+  console.log(user);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://127.0.0.1:8000/api/user/${user.email}`)
+        .then((response) => response.json())
+        .then((data) => setUserData(data))
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [user?.email]);
 
   const navigate = useNavigate();
 
@@ -63,6 +76,15 @@ const Navbar = () => {
                 <a className='nav-link' href='#'>
                   Testimonials
                 </a>
+              </li>
+              <li>
+                {userData && (
+                  <img
+                    src={userData.image_url}
+                    alt='user profile pic'
+                    className='userProfileAvatar'
+                  />
+                )}
               </li>
             </ul>
             <form className='d-flex ms-md-4' role='search'>

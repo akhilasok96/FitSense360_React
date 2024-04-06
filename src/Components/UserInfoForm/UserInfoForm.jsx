@@ -9,6 +9,8 @@ const UserInfoForm = () => {
   console.log(user.displayName);
   const navigate = useNavigate();
   const wsRef = useRef(null);
+  const [imageBase64, setImageBase64] = useState("");
+
   const [userInfo, setUserInfo] = useState({
     username: user?.displayName || "",
     email: user?.email || "",
@@ -49,9 +51,25 @@ const UserInfoForm = () => {
     }));
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (loadEvent) => {
+        setImageBase64(loadEvent.target.result);
+        document.getElementById("selectedAvatar").src = loadEvent.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleClick = () => {
     if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify(userInfo));
+      const payload = {
+        ...userInfo,
+        image: imageBase64,
+      };
+      wsRef.current.send(JSON.stringify(payload));
     } else {
       console.error("WebSocket is not open.");
     }
@@ -76,9 +94,37 @@ const UserInfoForm = () => {
           </div>
           <div className='col-md-6 right-info-box'>
             <div className='row align-items-center'>
-              <div className='header-text mb-4'>
-                <h2>Hello, Again</h2>
-                <p>Wee are happy to have you back.</p>
+              <div>
+                {/* Your file input and image preview JSX */}
+                <div className='d-flex justify-content-center mb-3'>
+                  <img
+                    id='selectedAvatar'
+                    src='https://mdbootstrap.com/img/Photos/Others/placeholder-avatar.jpg'
+                    className='rounded-circle'
+                    style={{
+                      width: "120px",
+                      height: "120px",
+                      objectFit: "cover",
+                    }}
+                    alt='example placeholder'
+                  />
+                </div>
+                <div className='d-flex justify-content-center'>
+                  <div className='btn btn-primary btn-rounded mb-4'>
+                    <label
+                      className='form-label text-white m-1 userAvatarLabel'
+                      htmlFor='customFile2'
+                    >
+                      Upload Image
+                    </label>
+                    <input
+                      type='file'
+                      className='form-control d-none userAvatar'
+                      id='customFile2'
+                      onChange={handleImageChange}
+                    />
+                  </div>
+                </div>
               </div>
               <div className='input-group mb-3'>
                 <input
@@ -157,7 +203,7 @@ const UserInfoForm = () => {
                   placeholder='Height (cm)'
                 />
               </div>
-              <div className='input-group mb-3'>
+              <div className='input-group mb-1'>
                 <button
                   onClick={handleClick}
                   className='btn btn-user-info btn-lg w-100 fs-6'

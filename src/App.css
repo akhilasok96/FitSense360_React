@@ -62,6 +62,14 @@ a:focus {
     color: var(--main-color) !important;
 }
 
+.userProfileAvatar{
+    width: 60px;
+    height: 55px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
 .btn1 {
     border: 0;
     padding: 0.7rem 1.55rem;
@@ -698,6 +706,10 @@ a:focus {
     border: 1px solid var(--primary-color);
     transform: scale(1.02);
     transition: 0.3s linear;
+}
+
+.userAvatarLabel:hover{
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 768px){

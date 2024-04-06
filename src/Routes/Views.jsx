@@ -32,7 +32,14 @@ export const Views = () => {
             </ProtectedRoute>
           }
         />
-        <Route path='/info' element={<UserInfoForm />} />
+        <Route
+          path='/info'
+          element={
+            <ProtectedRoute>
+              <UserInfoForm />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path='/home'
           element={
