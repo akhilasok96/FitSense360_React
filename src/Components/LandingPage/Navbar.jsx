@@ -8,7 +8,6 @@ const Navbar = () => {
   const { logOut } = useUserAuth();
 
   const { user } = useUserAuth();
-  console.log(user);
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -51,33 +50,33 @@ const Navbar = () => {
             <span className='navbar-toggler-icon'></span>
           </button>
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
-            <ul className='navbar-nav ms-auto mb-2 mb-lg-0'>
-              <li className='nav-item'>
+            <ul className='navbar-nav ms-auto mb-2 mb-lg-0 align-items-center'>
+              <li className='nav-item nav-text-link'>
                 <a className='nav-link' href='/home'>
                   Home
                 </a>
               </li>
-              <li className='nav-item'>
+              <li className='nav-item nav-text-link'>
                 <a className='nav-link' href='#'>
                   About Us
                 </a>
               </li>
-              <li className='nav-item'>
+              <li className='nav-item nav-text-link'>
                 <a className='nav-link' href='#'>
                   Program
                 </a>
               </li>
-              <li className='nav-item'>
+              <li className='nav-item nav-text-link'>
                 <a className='nav-link' href='#'>
                   Memberships
                 </a>
               </li>
-              <li className='nav-item'>
+              <li className='nav-item nav-text-link'>
                 <a className='nav-link' href='#'>
                   Testimonials
                 </a>
               </li>
-              <li>
+              <li className='userAvatarWrapper'>
                 {userData && (
                   <img
                     src={userData.image_url}

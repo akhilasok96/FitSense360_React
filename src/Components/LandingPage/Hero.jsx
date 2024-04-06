@@ -1,4 +1,5 @@
 import playBtn from "../assets/play.png";
+import { useState, useEffect } from "react";
 // import mainImg from "../assets/main_image1.png";
 // import mainImg2 from "../assets/main_image2.png";
 import { useUserAuth } from "../../context/UserAuthContext";
@@ -12,6 +13,19 @@ import { Autoplay, Scrollbar } from "swiper/modules";
 
 const Hero = () => {
   const { user } = useUserAuth();
+  const [userData, setUserData] = useState(null);
+  console.log(user);
+  console.log(userData);
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://127.0.0.1:8000/api/user/${user.email}`)
+        .then((response) => response.json())
+        .then((data) => setUserData(data))
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [user?.email]);
+
   return (
     <>
       {/* ********************************** */}
@@ -69,8 +83,8 @@ const Hero = () => {
                 <div className='col-md-6'>
                   <div className='Hero-col1'>
                     <h1>
-                      Get A <span>Healthy</span> Body With{" "}
-                      <span>Personalized</span> Exercises
+                      Your <span>BMI: </span>
+                      {/* {userData.bmi} */}
                     </h1>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
