@@ -1,13 +1,20 @@
 import parterImg1 from "../assets/partner1.png";
 import parterImg2 from "../assets/partner2.png";
 import parterImg3 from "../assets/partner3.png";
-import fitness1 from "../assets/fitness1.jpeg";
+import fitness1 from "../assets/pose-estimation-banner.png";
 import dumbell_icon from "../assets/dumbbell.png";
 
+import { useNavigate } from "react-router-dom";
+
 const FitnessGoal = () => {
+  const navigate = useNavigate();
+  const handlePoseClick = () => {
+    navigate("/pose");
+  };
+
   return (
     <>
-      <div className='container-fluid Fitness-Goal'>
+      <div id='fit-goal' className='container-fluid Fitness-Goal'>
         <div className='container'>
           <div className='row gx-0 align-items-center'>
             <div className='col-md-5'>
@@ -42,22 +49,26 @@ const FitnessGoal = () => {
             <div className='col-md-6'>
               <div className='fitness-col4'>
                 <h1 className='main-heading'>
-                  Get Ready To Reach Your Fitness Goals
+                  Elevate Your Fitness with Pose Estimation
                 </h1>
                 <div className='pt-3 pb-4'>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-                    quasi iure fugiat expedita, enim adipisci nemo eligendi
-                    minus ipsum molestias perspiciatis ipsa mollitia quidem, vel
-                    earum impedit id accusantium rerum laborum facilis maiores!
-                    Incidunt, sapiente veniam! Non quibusdam unde quam?
+                    Discover the future of fitness with our cutting-edge pose
+                    estimation technology. By analyzing your movements in
+                    real-time, our system provides instant feedback on your
+                    form, ensuring that every exercise is performed safely and
+                    effectively. This personalized approach helps prevent
+                    injuries, optimizes your workout, and accelerates progress
+                    towards your fitness goals.
                   </p>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Unde, pariatur.
+                    For beginners aiming to master the basics or an experienced
+                    athletes
                   </p>
                 </div>
-                <button className='btn1 btn0'>Free Trial Today</button>
+                <button onClick={handlePoseClick} className='btn1 btn0'>
+                  See Workouts
+                </button>
               </div>
             </div>
           </div>

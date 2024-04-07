@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useNavigate } from "react-router-dom";
 
+import { HashLink as Link } from "react-router-hash-link";
+
 const Navbar = () => {
   const [isModalShown, setIsModalShown] = useState(false);
   const { logOut } = useUserAuth();
@@ -67,9 +69,9 @@ const Navbar = () => {
                 </a>
               </li>
               <li className='nav-item nav-text-link'>
-                <a className='nav-link' href='#'>
-                  Memberships
-                </a>
+                <Link to='#fit-goal' className='nav-link' smooth>
+                  AI Trainer
+                </Link>
               </li>
               <li className='nav-item nav-text-link'>
                 <a className='nav-link' href='#'>

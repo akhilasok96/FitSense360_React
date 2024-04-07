@@ -10,12 +10,21 @@ import UserInfoForm from "../Components/UserInfoForm/UserInfoForm";
 import "bootstrap/dist/css/bootstrap.css";
 import { WorkoutCardsPage } from "../Components/WorkoutCardsPage/WorkoutCardsPage";
 import CalorieForm from "../Components/CalorieForm/CalorieForm";
+import PoseWorkoutCardsPage from "../Components/PoseWorkoutCardsPage/PoseWorkoutCardsPage";
 
 export const Views = () => {
   return (
     <UserAuthContextProvider>
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route
+          path='/pose'
+          element={
+            <ProtectedRoute>
+              <PoseWorkoutCardsPage />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path='/work'
           element={

@@ -15,7 +15,6 @@ const Hero = () => {
   const { user } = useUserAuth();
   const [userData, setUserData] = useState(null);
   console.log(user);
-  console.log(userData);
 
   useEffect(() => {
     if (user?.email) {
@@ -82,10 +81,12 @@ const Hero = () => {
               <div className='row gx-4 align-items-center'>
                 <div className='col-md-6'>
                   <div className='Hero-col1'>
-                    <h1>
-                      Your <span>BMI: </span>
-                      {/* {userData.bmi} */}
-                    </h1>
+                    {userData && (
+                      <h1>
+                        Your <span>BMI: </span>
+                        {userData.bmi}
+                      </h1>
+                    )}
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Sed rerum error doloribus similique, tenetur nobis esse

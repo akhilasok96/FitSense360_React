@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --main-color: #ff2332;
     --primary-color: #FF662D;
     --dark-color: #37383c;
     --darklight-color: #3a3b3f;
+    --whiteshade-color: #747474;
 }
 
 * {
@@ -55,11 +60,16 @@ ul {
 
 .Nav_main li {
     padding: 0 0.4rem;
+    margin-right: 8px;
 }
 
 .nav-text-link:hover {
     transform: translateY(-8px);
     transition: 0.3s linear;
+    border-bottom: 1px solid var(--main-color);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-width: thin;
 }
 
 a:hover,
@@ -236,6 +246,7 @@ a:focus {
 
 .fitness-col3 img {
     border-radius: 10px;
+    border: 2px solid var(--whiteshade-color);
 }
 
 .popup {
@@ -259,7 +270,7 @@ a:focus {
 .fitness-col4 p {
     padding: 0.4rem 0;
     font-size: 1rem;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
     text-align: justify;
 }
 
@@ -287,23 +298,17 @@ a:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* This helps push your button to the bottom */
 }
 
 .custom-card {
     width: 100%;
-    /* Adjust this value to change the card's width */
     max-width: 350px;
-    /* Example max-width, adjust as needed */
 }
 
 .card-button {
     width: auto;
-    /* Adjust this value as needed */
     padding: 10px 20px;
-    /* Example padding, adjust for bigger/smaller button */
     font-size: 18px;
-    /* Adjust font size as needed */
     color: var(--main-color);
     background-color: #fff;
     border: 1px solid var(--main-color);
@@ -759,6 +764,7 @@ a:focus {
     height: 600px;
     display: flex;
     flex-direction: column;
+    filter: brightness(0.95);
     overflow: hidden;
 }
 
@@ -791,10 +797,12 @@ a:focus {
     transform: scale(1.04);
     transition: 0.3s linear;
     color: #fff;
+    filter: brightness(1);
     background-color: var(--darklight-color);
 }
 
 .menu-col:hover > img{
+    transform: scale(1.04);
     transition: 0.3s linear;
     border-bottom: 3px solid var(--primary-color);
 }
@@ -827,9 +835,9 @@ a:focus {
 
 .main-span{
     letter-spacing: 0.8px;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     color: var(--primary-color);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .main-h2{
