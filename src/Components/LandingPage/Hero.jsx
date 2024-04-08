@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 // import mainImg from "../assets/main_image1.png";
 // import mainImg2 from "../assets/main_image2.png";
 import { useUserAuth } from "../../context/UserAuthContext";
+import { useNavigate } from "react-router-dom";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -12,9 +13,15 @@ import "swiper/css/scrollbar";
 import { Autoplay, Scrollbar } from "swiper/modules";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   const { user } = useUserAuth();
   const [userData, setUserData] = useState(null);
   console.log(user);
+
+  const handleWorkoutClick = () => {
+    navigate("/work");
+  };
 
   useEffect(() => {
     if (user?.email) {
@@ -60,7 +67,12 @@ const Hero = () => {
                       architecto!
                     </p>
                     <div className='herobtns'>
-                      <button className='btn1 btn0'>Get Started</button>
+                      <button
+                        onClick={handleWorkoutClick}
+                        className='btn1 btn0'
+                      >
+                        Get Started
+                      </button>
                       <button className='play_btn'>
                         <img src={playBtn} alt='' />
                         <span>Watch Videos</span>

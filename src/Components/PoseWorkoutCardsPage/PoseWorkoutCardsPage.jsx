@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import Navbar from "../LandingPage/Navbar";
 import Footer from "../LandingPage/Footer";
 
+import { useNavigate } from "react-router-dom";
+
 const PoseWorkoutCardsPage = () => {
+  const navigate = useNavigate();
   const [poseExercises, setPoseExercises] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -12,6 +15,10 @@ const PoseWorkoutCardsPage = () => {
       .then((data) => setPoseExercises(data))
       .catch((error) => console.error("There was an error!", error));
   }, []);
+
+  const handleSpecificPoseClick = () => {
+    navigate("/bicep");
+  };
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -53,7 +60,7 @@ const PoseWorkoutCardsPage = () => {
             {/* ******************************************************** */}
             {filteredExercises.map((exercise) => (
               <div key={exercise.exercise_id} className='col-md-4'>
-                <div className='menu-col'>
+                <div onClick={handleSpecificPoseClick} className='menu-col'>
                   <img
                     src={exercise.image_url}
                     alt='exercise image'

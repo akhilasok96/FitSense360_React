@@ -37,7 +37,7 @@ input {
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
-    background-image: linear-gradient(-45deg, #EA5232 0%, #e0793d 100%);
+    background-image: linear-gradient(-45deg, #ec212e 0%, #FF662D 100%);
     transition: 1.8s ease-in-out;
     border-radius: 50%;
     z-index: 6;
@@ -151,14 +151,14 @@ input {
 }
 
 .social-icon:hover {
-    color: #EA5232;
-    border-color: #EA5232;
+    color: #ec212e;
+    border-color: #ec212e;
 }
 
 
 .login-btn {
     width: 150px;
-    background-color: #e36526;
+    background-color: #ec212e;
     border: none;
     outline: none;
     height: 49px;
@@ -173,8 +173,8 @@ input {
 
 .login-btn:hover {
     background-color: #fff;
-    color: #EA5232;
-    border: 2px #EA5232 solid;
+    color: #ec212e;
+    border: 2px #ec212e solid;
     transition: 0.3s linear;
 }
 

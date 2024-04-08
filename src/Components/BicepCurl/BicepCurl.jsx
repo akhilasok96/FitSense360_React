@@ -1,17 +1,30 @@
 import { useRef, useCallback, useEffect, useState } from "react";
 import Webcam from "react-webcam";
 import Navbar from "../LandingPage/Navbar";
+import { useUserAuth } from "../../context/UserAuthContext";
+import Footer from "../LandingPage/Footer";
 
 export const BicepCurl = () => {
+  const { user } = useUserAuth();
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
   const [keypoints, setKeypoints] = useState([]);
   const [counter, setCounter] = useState(0);
   const [isExerciseStarted, setIsExerciseStarted] = useState(false);
   const [stage, setStage] = useState("Not Started");
+  const [userData, setUserData] = useState(null);
 
   const WEBSOCKET_URL = "ws://127.0.0.1:8000/ws/stream/";
   let socket = null;
+
+  useEffect(() => {
+    if (user?.email) {
+      fetch(`http://127.0.0.1:8000/api/user/${user.email}`)
+        .then((response) => response.json())
+        .then((data) => setUserData(data))
+        .catch((error) => console.error("Error fetching user data:", error));
+    }
+  }, [user?.email]);
 
   const capture = useCallback(() => {
     if (webcamRef.current && isExerciseStarted) {
@@ -67,22 +80,62 @@ export const BicepCurl = () => {
 
   const clearCanvas = () => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    canvas.width = webcamRef.current.video.videoWidth;
-    canvas.height = webcamRef.current.video.videoHeight;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (canvas && webcamRef.current) {
+      const ctx = canvas.getContext("2d");
+      canvas.width = webcamRef.current.video.videoWidth;
+      canvas.height = webcamRef.current.video.videoHeight;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
   };
 
   const handleStartExercise = () => {
     setIsExerciseStarted(true);
     setCounter(0);
+    setStage("Not Started");
   };
 
   const handleStopExercise = () => {
     setIsExerciseStarted(false);
     setCounter(0);
     clearCanvas();
+
+    const duration = Math.random() * (40 - 5) + 5;
+    const heart_rate = Math.random() * (130 - 80) + 80;
+    const body_temp = Math.random() * (41 - 37) + 37;
+
+    if (userData) {
+      const caloriePredictionData = {
+        gender: userData.gender,
+        age: userData.age,
+        height: userData.height,
+        weight: userData.weight,
+        duration: duration.toFixed(2),
+        heart_rate: heart_rate.toFixed(2),
+        body_temp: body_temp.toFixed(2),
+      };
+
+      console.log(caloriePredictionData);
+
+      const calorieSocket = new WebSocket(
+        "ws://localhost:8000/ws/calorie_prediction/"
+      );
+
+      calorieSocket.onopen = () => {
+        console.log("Calorie Prediction WebSocket Connected");
+        calorieSocket.send(JSON.stringify(caloriePredictionData));
+      };
+
+      calorieSocket.onmessage = (event) => {
+        const message = JSON.parse(event.data);
+        console.log("Predicted Calories Burned:", message.prediction);
+        const caloriesRounded = parseFloat(message.prediction).toFixed(2);
+        const speechMessage = `Exercise Complete, you have burned ${caloriesRounded} calories.`;
+        speak(speechMessage);
+      };
+
+      calorieSocket.onclose = () =>
+        console.log("Calorie Prediction WebSocket Disconnected");
+    }
   };
 
   useEffect(() => {
@@ -210,6 +263,7 @@ export const BicepCurl = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
