@@ -90,7 +90,6 @@ export const BicepCurl = () => {
 
   const handleStartExercise = () => {
     setIsExerciseStarted(true);
-    setCounter(0);
     setStage("Not Started");
   };
 
@@ -99,6 +98,7 @@ export const BicepCurl = () => {
     setCounter(0);
     clearCanvas();
 
+    // Generate random data for duration, heart rate, and body temperature
     const duration = Math.random() * (40 - 5) + 5;
     const heart_rate = Math.random() * (130 - 80) + 80;
     const body_temp = Math.random() * (41 - 37) + 37;
@@ -114,8 +114,7 @@ export const BicepCurl = () => {
         body_temp: body_temp.toFixed(2),
       };
 
-      console.log(caloriePredictionData);
-
+      // Initialize the WebSocket connection for calorie prediction
       const calorieSocket = new WebSocket(
         "ws://localhost:8000/ws/calorie_prediction/"
       );
@@ -125,14 +124,40 @@ export const BicepCurl = () => {
         calorieSocket.send(JSON.stringify(caloriePredictionData));
       };
 
+      // Handle the response from the server for calorie prediction
       calorieSocket.onmessage = (event) => {
         const message = JSON.parse(event.data);
         console.log("Predicted Calories Burned:", message.prediction);
         const caloriesRounded = parseFloat(message.prediction).toFixed(2);
         const speechMessage = `Exercise Complete, you have burned ${caloriesRounded} calories.`;
         speak(speechMessage);
-      };
 
+        // Assuming you have BMI stored in userData, if not, you'll need to adjust this
+        const bmi = userData.bmi || "Unknown";
+
+        const workoutLogData = {
+          email: userData.email,
+          first_name: userData.first_name,
+          exercise_name: "Bicep Curl",
+          repetition: counter,
+          date: new Date().toISOString().slice(0, 10),
+          bmi: bmi,
+          duration: duration.toFixed(2),
+          predicted_calories: caloriesRounded,
+        };
+
+        const workoutLogSocket = new WebSocket(
+          "ws://localhost:8000/ws/workout_logs/"
+        );
+        workoutLogSocket.onopen = () => {
+          console.log("Workout Logs WebSocket Connected");
+          workoutLogSocket.send(JSON.stringify(workoutLogData));
+        };
+
+        workoutLogSocket.onclose = () =>
+          console.log("Workout Logs WebSocket Disconnected");
+      };
+      setCounter(0);
       calorieSocket.onclose = () =>
         console.log("Calorie Prediction WebSocket Disconnected");
     }
