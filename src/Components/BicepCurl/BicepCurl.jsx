@@ -3,6 +3,7 @@ import Webcam from "react-webcam";
 import Navbar from "../LandingPage/Navbar";
 import { useUserAuth } from "../../context/UserAuthContext";
 import Footer from "../LandingPage/Footer";
+import { useParams } from "react-router-dom";
 
 export const BicepCurl = () => {
   const { user } = useUserAuth();
@@ -13,6 +14,8 @@ export const BicepCurl = () => {
   const [isExerciseStarted, setIsExerciseStarted] = useState(false);
   const [stage, setStage] = useState("Not Started");
   const [userData, setUserData] = useState(null);
+
+  let { exerciseId } = useParams();
 
   const WEBSOCKET_URL = "ws://127.0.0.1:8000/ws/stream/";
   let socket = null;
@@ -135,15 +138,23 @@ export const BicepCurl = () => {
         // Assuming you have BMI stored in userData, if not, you'll need to adjust this
         const bmi = userData.bmi || "Unknown";
 
+        const currentTime = new Date().toLocaleTimeString("en-US", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        });
+
         const workoutLogData = {
           email: userData.email,
           first_name: userData.first_name,
           exercise_name: "Bicep Curl",
           repetition: counter,
           date: new Date().toISOString().slice(0, 10),
+          time: currentTime,
           bmi: bmi,
           duration: duration.toFixed(2),
           predicted_calories: caloriesRounded,
+          exercise_id: exerciseId,
         };
 
         const workoutLogSocket = new WebSocket(

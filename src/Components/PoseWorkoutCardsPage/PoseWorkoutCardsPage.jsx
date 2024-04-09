@@ -16,8 +16,25 @@ const PoseWorkoutCardsPage = () => {
       .catch((error) => console.error("There was an error!", error));
   }, []);
 
-  const handleSpecificPoseClick = () => {
-    navigate("/bicep");
+  const handleSpecificPoseClick = (exercise, event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    let path = "/";
+    switch (exercise.type) {
+      case "bicepcurl":
+        path = `/bicep/${exercise.exercise_id}`;
+        break;
+      case "squat":
+        path = `/squats/${exercise.exercise_id}`;
+        break;
+      case "plank":
+        path = `/plank/${exercise.exercise_id}`;
+        break;
+      default:
+        console.error("Unknown exercise type");
+        return;
+    }
+    navigate(path);
   };
 
   const handleSearchChange = (event) => {
@@ -60,7 +77,10 @@ const PoseWorkoutCardsPage = () => {
             {/* ******************************************************** */}
             {filteredExercises.map((exercise) => (
               <div key={exercise.exercise_id} className='col-md-4'>
-                <div onClick={handleSpecificPoseClick} className='menu-col'>
+                <div
+                  onClick={(event) => handleSpecificPoseClick(exercise, event)}
+                  className='menu-col'
+                >
                   <img
                     src={exercise.image_url}
                     alt='exercise image'

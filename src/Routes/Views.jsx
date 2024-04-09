@@ -11,12 +11,21 @@ import "bootstrap/dist/css/bootstrap.css";
 import { WorkoutCardsPage } from "../Components/WorkoutCardsPage/WorkoutCardsPage";
 import CalorieForm from "../Components/CalorieForm/CalorieForm";
 import PoseWorkoutCardsPage from "../Components/PoseWorkoutCardsPage/PoseWorkoutCardsPage";
+import WorkoutHistory from "../Components/WorkoutHistory/WorkoutHistory";
 
 export const Views = () => {
   return (
     <UserAuthContextProvider>
       <Routes>
         <Route path='/' element={<Login />} />
+        <Route
+          path='/workout_history'
+          element={
+            <ProtectedRoute>
+              <WorkoutHistory />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path='/pose'
           element={
@@ -58,7 +67,7 @@ export const Views = () => {
           }
         />
         <Route
-          path='/bicep'
+          path='/bicep/:exerciseId'
           element={
             <ProtectedRoute>
               <BicepCurl />
@@ -67,7 +76,7 @@ export const Views = () => {
         />
 
         <Route
-          path='/squats'
+          path='/squats/:exerciseId'
           element={
             <ProtectedRoute>
               <Squat />
