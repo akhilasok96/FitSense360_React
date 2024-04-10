@@ -15,7 +15,7 @@ const BestPlan = () => {
               <div className='bestplan-col1'>
                 <h5>Discover</h5>
                 <h1 className='pt-4'>
-                  $69 <span>/Per Month</span>
+                  ₹2500 <span>/Per Month</span>
                 </h1>
                 <div className='bestplan-detail py-3'>
                   <p>
@@ -42,7 +42,7 @@ const BestPlan = () => {
                 <h3 className='BestPlan-h3'>Most Popular</h3>
                 <h5>Enterprise</h5>
                 <h1 className='pt-4'>
-                  $299 <span>/Per Month</span>
+                  ₹5800 <span>/Per Month</span>
                 </h1>
                 <div className='bestplan-detail py-3'>
                   <p>
@@ -74,7 +74,7 @@ const BestPlan = () => {
               <div className='bestplan-col1'>
                 <h5>Professional</h5>
                 <h1 className='pt-4'>
-                  $199 <span>/Per Month</span>
+                  ₹8500 <span>/Per Month</span>
                 </h1>
                 <div className='bestplan-detail py-3'>
                   <p>

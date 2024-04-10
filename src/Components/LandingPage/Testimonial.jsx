@@ -21,10 +21,12 @@ const Testimonial = () => {
                   What Our Happy Clients Say About Us
                 </h1>
                 <p className='py-4'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic
-                  quo nam cum animi aperiam reprehenderit perferendis, corporis
-                  ratione tempora fugiat a atque, distinctio commodi facere,
-                  deleniti ipsa voluptate doloremque dolore.
+                  At the heart of our mission is a commitment to transforming
+                  lives through our dedicated services. Our clients aren't just
+                  satisfied; they're empowered, inspired, and eager to share
+                  their journeys. Read on to discover how we've made a
+                  difference, in their own words. These are more than
+                  testimonials; they're our shared successes.
                 </p>
                 <div className='row pt-2 align-items-center'>
                   <div className='col-md-5'>

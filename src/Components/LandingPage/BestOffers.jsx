@@ -16,9 +16,13 @@ const BestOffers = () => {
             </div>
             <div className='col-md-5'>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Dolorem consectetur dolore illum repellat, obcaecati odio!
-                Tenetur laboriosam reprehenderit similique porro.
+                <p>
+                  Discover our curated selection of fitness programs, each
+                  designed to meet a wide range of health and wellness goals.
+                  From the energizing flows of basic yoga to the
+                  strength-building rigor of bodybuilding, our offerings are
+                  tailored to empower you, regardless of your fitness level.
+                </p>
               </p>
             </div>
           </div>
@@ -29,8 +33,9 @@ const BestOffers = () => {
                 <img src={dumbellIcon} alt='' className='img-fluid pb-3' />
                 <h4>Strength Training</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Possimus, a assumenda iusto voluptatibus minima tempore.
+                  Elevate your fitness with our comprehensive strength training
+                  program. Designed for all levels, from beginners to advanced
+                  athletes.
                 </p>
                 <button>
                   Learn More <i className='fa-solid fa-arrow-right ps-2'></i>
@@ -42,8 +47,9 @@ const BestOffers = () => {
                 <img src={yogaIcon} alt='' className='img-fluid pb-3' />
                 <h4>Basic Yoga</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Possimus, a assumenda iusto voluptatibus minima tempore.
+                  Discover the art of balance with our Basic Yoga program.
+                  Perfect for those new to yoga or looking to refine their
+                  practice and fundamental poses.
                 </p>
                 <button>
                   Learn More <i className='fa-solid fa-arrow-right ps-2'></i>
@@ -55,8 +61,9 @@ const BestOffers = () => {
                 <img src={bicepsIcon} alt='' className='img-fluid pb-3' />
                 <h4>Body Building</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Possimus, a assumenda iusto voluptatibus minima tempore.
+                  Embark on a journey of muscular transformation with our Body
+                  Building program. Tailored for individuals aiming to gain
+                  muscle mass and sculpt their body.
                 </p>
                 <button>
                   Learn More <i className='fa-solid fa-arrow-right ps-2'></i>
@@ -68,8 +75,9 @@ const BestOffers = () => {
                 <img src={runningIcon} alt='' className='img-fluid pb-3' />
                 <h4>Weight Loss</h4>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Possimus, a assumenda iusto voluptatibus minima tempore.
+                  Kickstart your weight loss journey with a program designed to
+                  burn fat and increase energy levels with planning to help you
+                  achieve and maintain your ideal weight.
                 </p>
                 <button>
                   Learn More <i className='fa-solid fa-arrow-right ps-2'></i>

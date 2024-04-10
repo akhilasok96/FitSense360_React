@@ -60,11 +60,11 @@ const Hero = () => {
                       Welcome, <span>{user.displayName}</span>
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Sed rerum error doloribus similique, tenetur nobis esse
-                      labore iste deleniti, debitis ea reiciendis consectetur
-                      quis iusto sunt voluptates necessitatibus voluptatibus
-                      architecto!
+                      Welcome to our state-of-the-art workout trainer app,
+                      designed to bring the future of fitness into your home.
+                      Here, we combine the power of technology with the science
+                      of movement, offering you an unparalleled training
+                      experience.
                     </p>
                     <div className='herobtns'>
                       <button
@@ -100,11 +100,14 @@ const Hero = () => {
                       </h1>
                     )}
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Sed rerum error doloribus similique, tenetur nobis esse
-                      labore iste deleniti, debitis ea reiciendis consectetur
-                      quis iusto sunt voluptates necessitatibus voluptatibus
-                      architecto!
+                      {userData &&
+                        (userData.bmi < 18.5
+                          ? "Your BMI suggests you're in the underweight category. Focusing on nutrient-rich foods and strength training can help you build a healthier body."
+                          : userData.bmi <= 24.9
+                          ? "Great job! Your BMI is in the normal range. Continue with your balanced diet and regular exercise to maintain your health."
+                          : userData.bmi <= 29.9
+                          ? "Your BMI falls into the overweight category. Incorporating cardiovascular exercises and monitoring your nutrition can aid in reaching a healthier weight."
+                          : "Your BMI indicates obesity. It's important to consult a healthcare professional to create a safe, effective plan for achieving a healthier lifestyle.")}
                     </p>
                     <div className='herobtns'>
                       <button className='btn1 btn0'>Get Started</button>
@@ -135,11 +138,9 @@ const Hero = () => {
                       <span>Personalized</span> Exercises
                     </h1>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Sed rerum error doloribus similique, tenetur nobis esse
-                      labore iste deleniti, debitis ea reiciendis consectetur
-                      quis iusto sunt voluptates necessitatibus voluptatibus
-                      architecto!
+                      Our unique pose estimation feature guides you through each
+                      exercise, ensuring you maintain the correct form for
+                      effective workouts and minimized risk of injury.
                     </p>
                     <div className='herobtns'>
                       <button className='btn1 btn0'>Get Started</button>

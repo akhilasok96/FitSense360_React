@@ -132,7 +132,7 @@ export const BicepCurl = () => {
         const message = JSON.parse(event.data);
         console.log("Predicted Calories Burned:", message.prediction);
         const caloriesRounded = parseFloat(message.prediction).toFixed(2);
-        const speechMessage = `Exercise Complete, you have burned ${caloriesRounded} calories.`;
+        const speechMessage = `Workout Complete, you have burned ${caloriesRounded} calories.`;
         speak(speechMessage);
 
         // Assuming you have BMI stored in userData, if not, you'll need to adjust this

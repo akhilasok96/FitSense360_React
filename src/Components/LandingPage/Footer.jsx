@@ -27,38 +27,38 @@ const Footer = () => {
             </div>
             <div className='col-md-2'>
               <div className='footer-col1'>
-                <h5 className='footer-h5'>Company</h5>
+                <h5 className='footer-h5'>Membership</h5>
                 <ul>
                   <li>
-                    <a href='#'>About Us</a>
+                    <a href='#'>Why Join</a>
                   </li>
                   <li>
-                    <a href='#'>Why Us</a>
+                    <a href='#'>Testimonials</a>
                   </li>
                   <li>
-                    <a href='#'>Security</a>
+                    <a href='#'>Mobile Applications</a>
                   </li>
                   <li>
-                    <a href='#'>Partnership</a>
+                    <a href='#'>Group Fitness Classes</a>
                   </li>
                 </ul>
               </div>
             </div>
             <div className='col-md-2'>
               <div className='footer-col1'>
-                <h5 className='footer-h5'>Company</h5>
+                <h5 className='footer-h5'>Navigate</h5>
                 <ul>
                   <li>
-                    <a href='#'>About Us</a>
+                    <a href='#'>Career Opportunities</a>
                   </li>
                   <li>
-                    <a href='#'>Why Us</a>
+                    <a href='#'>Media Relations</a>
                   </li>
                   <li>
-                    <a href='#'>Security</a>
+                    <a href='#'>Contact us</a>
                   </li>
                   <li>
-                    <a href='#'>Partnership</a>
+                    <a href='#'>Terms and Conditions</a>
                   </li>
                 </ul>
               </div>
