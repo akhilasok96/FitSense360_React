@@ -121,6 +121,7 @@ const UserInfoForm = () => {
                       type='file'
                       className='form-control d-none userAvatar'
                       id='customFile2'
+                      required
                       onChange={handleImageChange}
                     />
                   </div>
@@ -135,6 +136,8 @@ const UserInfoForm = () => {
                   onChange={handleChange}
                   className='form-control form-control-l bg-light fs-6'
                   placeholder='First Name'
+                  required
+                  autoComplete='off'
                 />
               </div>
               <div className='input-group mb-3'>
@@ -146,10 +149,12 @@ const UserInfoForm = () => {
                   onChange={handleChange}
                   className='form-control form-control-l bg-light fs-6'
                   placeholder='Last Name'
+                  required
+                  autoComplete='off'
                 />
               </div>
               <div className='input-group mb-3'>
-                <input
+                {/* <input
                   type='text'
                   id='age'
                   name='age'
@@ -157,10 +162,30 @@ const UserInfoForm = () => {
                   onChange={handleChange}
                   className='form-control form-control-l bg-light fs-6'
                   placeholder='Age'
-                />
+                  required
+                  min='15'
+                  max='100'
+                /> */}
+                <select
+                  id='age'
+                  name='age'
+                  value={userInfo.age}
+                  onChange={handleChange}
+                  className='form-select form-control-l bg-light fs-6'
+                  required
+                >
+                  <option value=''>Select Age</option>
+                  {Array.from({ length: 80 - 18 + 1 }, (_, i) => i + 18).map(
+                    (age) => (
+                      <option key={age} value={age}>
+                        {age}
+                      </option>
+                    )
+                  )}
+                </select>
               </div>
               <div className='input-group mb-3'>
-                <input
+                {/* <input
                   type='text'
                   id='gender'
                   name='gender'
@@ -168,7 +193,19 @@ const UserInfoForm = () => {
                   onChange={handleChange}
                   className='form-control form-control-l bg-light fs-6'
                   placeholder='Gender'
-                />
+                  required
+                /> */}
+                <select
+                  id='gender'
+                  name='gender'
+                  value={userInfo.gender}
+                  onChange={handleChange}
+                  className='form-select form-control-l bg-light fs-6'
+                >
+                  <option value=''>Select Gender</option>
+                  <option value='male'>Male</option>
+                  <option value='female'>Female</option>
+                </select>
               </div>
               <div className='input-group mb-3'>
                 <input
@@ -179,6 +216,8 @@ const UserInfoForm = () => {
                   onChange={handleChange}
                   className='form-control form-control-l bg-light fs-6'
                   placeholder='Place'
+                  required
+                  autoComplete='off'
                 />
               </div>
               <div className='input-group mb-3'>
@@ -190,6 +229,8 @@ const UserInfoForm = () => {
                   onChange={handleChange}
                   className='form-control form-control-l bg-light fs-6'
                   placeholder='Weight (Kg)'
+                  required
+                  autoComplete='off'
                 />
               </div>
               <div className='input-group mb-4'>
@@ -201,6 +242,8 @@ const UserInfoForm = () => {
                   onChange={handleChange}
                   className='form-control form-control-l bg-light fs-6'
                   placeholder='Height (cm)'
+                  required
+                  autoComplete='off'
                 />
               </div>
               <div className='input-group mb-1'>

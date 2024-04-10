@@ -258,6 +258,57 @@ input {
     right: 52%;
 }
 
+.sign-up-form .instructions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    border-radius: 2.6rem;
+    /* background: #d21e2a; */
+    background: transparent;
+    color: #000;
+    border: 2px solid #FF662D;
+    padding: 0.9rem 1.6rem;
+    width: 380px;
+    height: 88px;
+    margin: 10px 60px;
+    position: relative;
+    bottom: 2px;
+    text-align: justify;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.sign-up-form .instructions>svg {
+    margin-right: 0.25rem;
+}
+
+.sign-up-form .offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.sign-up-form .hide {
+    display: none;
+}
+
+.sign-up-form .valid {
+    border: 2px solid rgb(38, 199, 38);
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px 8px;
+    color: rgb(38, 199, 38);
+    margin-left: 0.35rem;
+}
+
+.sign-up-form .invalid {
+    border: 1px solid red;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px 10px;
+    color: red;
+    margin-left: 0.35rem;
+}
+
 .container-login.sign-up-mode .left-panel .image,
 .container-login.sign-up-mode .left-panel .content {
     transform: translateX(-800px);

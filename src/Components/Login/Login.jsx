@@ -47,6 +47,33 @@ export const Login = () => {
 
   const { signUp } = useUserAuth();
 
+  const [currentInstruction, setCurrentInstruction] = useState("");
+
+  useEffect(() => {
+    if (userFocus && !validName) {
+      setCurrentInstruction(
+        "Username: 4 to 24 characters. Must begin with a letter. Letters, numbers, underscores, hyphens allowed."
+      );
+    } else if (emailFocus && !validEmail) {
+      setCurrentInstruction(
+        "Email must contain '@' character and a valid domain."
+      );
+    } else if (passwordFocus && !validPassword) {
+      setCurrentInstruction(
+        "Password: 8 to 24 characters. Must include uppercase and lowercase letters, a number, and a special character. Allowed special characters: ! @ # $ %"
+      );
+    } else {
+      setCurrentInstruction("");
+    }
+  }, [
+    userFocus,
+    validName,
+    emailFocus,
+    validEmail,
+    passwordFocus,
+    validPassword,
+  ]);
+
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -174,6 +201,9 @@ export const Login = () => {
 
           <form onSubmit={handleSubmit} className='sign-up-form'>
             <h2 className='login-title'>Sign Up</h2>
+            <p className={currentInstruction ? "instructions" : "offscreen"}>
+              {currentInstruction}
+            </p>
             <div className='login-input-field'>
               <FontAwesomeIcon icon={faUser} />
               <input
@@ -190,6 +220,12 @@ export const Login = () => {
                 onFocus={() => setUserFocus(true)}
                 onBlur={() => setUserFocus(false)}
               />
+              <span className={validName ? "valid" : "hide"}>
+                <i className='fa-solid fa-check'></i>
+              </span>
+              <span className={validName || !userName ? "hide" : "invalid"}>
+                <i className='fa-solid fa-xmark'></i>
+              </span>
             </div>
             <div className='login-input-field'>
               <FontAwesomeIcon icon={faEnvelope} />
@@ -206,6 +242,12 @@ export const Login = () => {
                 onBlur={() => setEmailFocus(false)}
                 required
               />
+              <span className={validEmail ? "valid" : "hide"}>
+                <i className='fa-solid fa-check'></i>
+              </span>
+              <span className={validEmail || !email ? "hide" : "invalid"}>
+                <i className='fa-solid fa-xmark'></i>
+              </span>
             </div>
             <div className='login-input-field'>
               <FontAwesomeIcon icon={faLock} />
@@ -222,6 +264,12 @@ export const Login = () => {
                 onBlur={() => setPasswordFocus(false)}
                 required
               />
+              <span className={validPassword ? "valid" : "hide"}>
+                <i className='fa-solid fa-check'></i>
+              </span>
+              <span className={validPassword || !password ? "hide" : "invalid"}>
+                <i className='fa-solid fa-xmark'></i>
+              </span>
             </div>
             <button
               type='submit'
