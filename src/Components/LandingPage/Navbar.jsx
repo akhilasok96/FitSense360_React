@@ -64,9 +64,12 @@ const Navbar = () => {
                 </a>
               </li>
               <li className='nav-item nav-text-link'>
-                <a className='nav-link' href='#'>
+                {/* <a className='nav-link' href='#'>
                   Program
-                </a>
+                </a> */}
+                <Link to='#best-offers' className='nav-link' smooth>
+                  Program
+                </Link>
               </li>
               <li className='nav-item nav-text-link'>
                 <Link to='#fit-goal' className='nav-link' smooth>

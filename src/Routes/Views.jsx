@@ -12,6 +12,7 @@ import { WorkoutCardsPage } from "../Components/WorkoutCardsPage/WorkoutCardsPag
 import CalorieForm from "../Components/CalorieForm/CalorieForm";
 import PoseWorkoutCardsPage from "../Components/PoseWorkoutCardsPage/PoseWorkoutCardsPage";
 import WorkoutHistory from "../Components/WorkoutHistory/WorkoutHistory";
+import WorkoutCardsByCategory from "../Components/WorkoutCardsByCategory/WorkoutCardsByCategory";
 
 export const Views = () => {
   return (
@@ -39,6 +40,14 @@ export const Views = () => {
           element={
             <ProtectedRoute>
               <WorkoutCardsPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/workout_category/:category'
+          element={
+            <ProtectedRoute>
+              <WorkoutCardsByCategory />
             </ProtectedRoute>
           }
         />

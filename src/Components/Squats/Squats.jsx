@@ -1,10 +1,10 @@
 import { useRef, useCallback, useEffect, useState } from "react";
 import Webcam from "react-webcam";
-import Navbar from "../LandingPage/Navbar"; // Adjust this import path according to your project structure
-import Footer from "../LandingPage/Footer"; // Adjust this import path according to your project structure
-import { useUserAuth } from "../../context/UserAuthContext"; // Adjust this import path according to your project structure
+import Navbar from "../LandingPage/Navbar";
+import Footer from "../LandingPage/Footer";
+import { useUserAuth } from "../../context/UserAuthContext";
 import { useParams } from "react-router-dom";
-import "./Squats.css"; // Adjust this import path according to your project structure
+import "./Squats.css";
 
 export const Squat = () => {
   const { user } = useUserAuth();

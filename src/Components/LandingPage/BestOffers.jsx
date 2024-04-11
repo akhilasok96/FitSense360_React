@@ -3,10 +3,18 @@ import yogaIcon from "../assets/icons/yoga_icon.svg";
 import runningIcon from "../assets/icons/running_icon.svg";
 import bicepsIcon from "../assets/icons/biceps_icon.svg";
 
+import { useNavigate } from "react-router-dom";
+
 const BestOffers = () => {
+  const navigate = useNavigate();
+
+  const navigateToWorkouts = (category) => {
+    navigate(`/workout_category/${category}`);
+  };
+
   return (
     <>
-      <div className='container-fluid BestOffers'>
+      <div id='best-offers' className='container-fluid BestOffers'>
         <div className='container'>
           <div className='row gx-0 py-3 align-items-center'>
             <div className='col-md-7'>
@@ -28,7 +36,10 @@ const BestOffers = () => {
           </div>
           {/************************************************/}
           <div className='row gx-0 py-4'>
-            <div className='col-md-3'>
+            <div
+              className='col-md-3'
+              onClick={() => navigateToWorkouts("strength")}
+            >
               <div className='bestoffer-col1'>
                 <img src={dumbellIcon} alt='' className='img-fluid pb-3' />
                 <h4>Strength Training</h4>
@@ -42,7 +53,10 @@ const BestOffers = () => {
                 </button>
               </div>
             </div>
-            <div className='col-md-3'>
+            <div
+              className='col-md-3'
+              onClick={() => navigateToWorkouts("yoga")}
+            >
               <div className='bestoffer-col1'>
                 <img src={yogaIcon} alt='' className='img-fluid pb-3' />
                 <h4>Basic Yoga</h4>
@@ -56,7 +70,10 @@ const BestOffers = () => {
                 </button>
               </div>
             </div>
-            <div className='col-md-3'>
+            <div
+              className='col-md-3'
+              onClick={() => navigateToWorkouts("body_building")}
+            >
               <div className='bestoffer-col1'>
                 <img src={bicepsIcon} alt='' className='img-fluid pb-3' />
                 <h4>Body Building</h4>
@@ -70,7 +87,10 @@ const BestOffers = () => {
                 </button>
               </div>
             </div>
-            <div className='col-md-3'>
+            <div
+              className='col-md-3'
+              onClick={() => navigateToWorkouts("weightloss")}
+            >
               <div className='bestoffer-col1'>
                 <img src={runningIcon} alt='' className='img-fluid pb-3' />
                 <h4>Weight Loss</h4>
