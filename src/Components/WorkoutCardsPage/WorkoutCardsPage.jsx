@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import Navbar from "../LandingPage/Navbar";
 import Footer from "../LandingPage/Footer";
 
 export const WorkoutCardsPage = () => {
   const [exercises, setExercises] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/exercises/")
@@ -15,6 +19,10 @@ export const WorkoutCardsPage = () => {
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleCardClick = (exerciseId) => {
+    navigate(`/single_workout/${exerciseId}`);
   };
 
   const filteredExercises = exercises.filter((exercise) =>
@@ -50,7 +58,11 @@ export const WorkoutCardsPage = () => {
           <div className='row gx-0'>
             {/* ******************************************************** */}
             {filteredExercises.map((exercise) => (
-              <div key={exercise.exercise_id} className='col-md-4'>
+              <div
+                key={exercise.exercise_id}
+                className='col-md-4'
+                onClick={() => handleCardClick(exercise.exercise_id)}
+              >
                 <div className='menu-col'>
                   <img
                     src={exercise.image_url}

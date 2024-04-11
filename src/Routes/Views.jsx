@@ -13,6 +13,7 @@ import CalorieForm from "../Components/CalorieForm/CalorieForm";
 import PoseWorkoutCardsPage from "../Components/PoseWorkoutCardsPage/PoseWorkoutCardsPage";
 import WorkoutHistory from "../Components/WorkoutHistory/WorkoutHistory";
 import WorkoutCardsByCategory from "../Components/WorkoutCardsByCategory/WorkoutCardsByCategory";
+import SingleWorkout from "../Components/SingleWorkout/SingleWorkout";
 
 export const Views = () => {
   return (
@@ -56,6 +57,14 @@ export const Views = () => {
           element={
             <ProtectedRoute>
               <CalorieForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/single_workout/:exerciseId'
+          element={
+            <ProtectedRoute>
+              <SingleWorkout />
             </ProtectedRoute>
           }
         />

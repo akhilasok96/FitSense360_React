@@ -906,3 +906,98 @@ a:focus {
     display: flex;
 }
 /*********************** Bicep Curl Page ***********************************/
+
+/*********************** Single Workout Page ***********************************/
+
+.Single-Workout-Wrapper {
+    background-color: #fff;
+    color: var(--dark-color);
+    padding: 4rem 0;
+    position: relative;
+}
+
+.main-heading-workout {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--dark-color);
+}
+
+.fitness-col3 .youtube-frame{
+    border-radius: 16px;
+}
+
+.btn-container-workout{
+    display: flex;
+    justify-content: space-around;
+}
+
+.stop-watch{
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--darklight-color);
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 2px solid var(--main-color);
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
+    height: 4rem;
+}
+
+.time-element {
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+}
+
+.time-label {
+    font-size: 0.5em;
+    vertical-align: super;
+}
+
+.btn-timer {
+    border: 0;
+    padding: 0.7rem 1.55rem;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    border: 2px solid transparent;
+}
+
+.btn-start{
+    background-color: #0d840d;
+}
+
+.btn-start:hover{
+    color: #0d840d;
+    border: 2px solid #0d840d;
+}
+
+.btn-stop{
+    background-color: var(--main-color);
+}
+
+.btn-stop:hover{
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+
+.btn-reset{
+    background-color: var(--darklight-color);
+}
+
+.btn-reset:hover{
+    color: var(--darklight-color);
+    border: 2px solid var(--darklight-color);
+}
+
+.btn-timer:hover {
+    cursor: pointer;
+    background-color: transparent !important;
+    transition: 0.3s linear;
+    transform: scale(1.03);
+}
+
+/*********************** Single Workout Page ***********************************/

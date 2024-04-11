@@ -59,14 +59,11 @@ const Navbar = () => {
                 </a>
               </li>
               <li className='nav-item nav-text-link'>
-                <a className='nav-link' href='#'>
-                  About Us
-                </a>
+                <Link to='#our-plans' className='nav-link' smooth>
+                  Plans
+                </Link>
               </li>
               <li className='nav-item nav-text-link'>
-                {/* <a className='nav-link' href='#'>
-                  Program
-                </a> */}
                 <Link to='#best-offers' className='nav-link' smooth>
                   Program
                 </Link>
@@ -77,9 +74,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className='nav-item nav-text-link'>
-                <a className='nav-link' href='#'>
+                <Link to='#testimonial-section' className='nav-link' smooth>
                   Testimonials
-                </a>
+                </Link>
               </li>
               <li className='userAvatarWrapper'>
                 {userData && (

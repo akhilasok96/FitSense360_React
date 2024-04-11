@@ -3,7 +3,7 @@ import tickImg from "../assets/icons/tick_icon.svg";
 const BestPlan = () => {
   return (
     <>
-      <div className='container-fluid BestPlan'>
+      <div id='our-plans' className='container-fluid BestPlan'>
         <h1 className='main-heading'>Choose The Best Plan</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam,

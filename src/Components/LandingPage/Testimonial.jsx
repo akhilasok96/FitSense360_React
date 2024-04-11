@@ -12,7 +12,7 @@ import testimonialPartnerImg from "../assets/testimonial_partner_image.png";
 const Testimonial = () => {
   return (
     <>
-      <div className='container-fluid testimonial'>
+      <div id='testimonial-section' className='container-fluid testimonial'>
         <div className='container'>
           <div className='row gx-0'>
             <div className='col-md-7'>
