@@ -12,6 +12,10 @@ const FitnessGoal = () => {
     navigate("/pose");
   };
 
+  const handleWorkoutHistoryClick = () => {
+    navigate("/workout_history");
+  };
+
   return (
     <>
       <div id='fit-goal' className='container-fluid Fitness-Goal'>
@@ -66,9 +70,17 @@ const FitnessGoal = () => {
                     athletes
                   </p>
                 </div>
-                <button onClick={handlePoseClick} className='btn1 btn0'>
-                  See Workouts
-                </button>
+                <div className='pose-buttons-wrapper'>
+                  <button onClick={handlePoseClick} className='btn1 btn0'>
+                    See Workouts
+                  </button>
+                  <button
+                    onClick={handleWorkoutHistoryClick}
+                    className='btn1 btn0'
+                  >
+                    Workout History
+                  </button>
+                </div>
               </div>
             </div>
           </div>

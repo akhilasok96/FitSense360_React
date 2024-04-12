@@ -1,4 +1,4 @@
-import servicesImg from "../assets/services_image.png";
+import servicesImg from "../assets/calisthenics_workout.jpeg";
 
 const Services = () => {
   return (
@@ -8,9 +8,7 @@ const Services = () => {
           <div className='row gx-0'>
             <div className='col-md-6'>
               <div className='services_col1'>
-                <h1 className='main-heading'>
-                  Why you should choose our services
-                </h1>
+                <h1 className='main-heading'>Choose your fitness path</h1>
                 {/* **************************************************** */}
                 <div className='services_main pt-3 pb-5'>
                   {/* **************************************************** */}
@@ -22,13 +20,12 @@ const Services = () => {
                       id='defaultCheck1'
                     />
                     <label className='form-check-label' htmlFor='defaultCheck1'>
-                      <h5 className='ps-3'>Personal Training</h5>
+                      <h5 className='ps-3'>Weightloss</h5>
                     </label>
                   </div>
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Ratione, quo ipsam repellat iure dicta maxime laboriosam
-                    iusto assumenda aspernatur omnis?
+                    Embark on a transformative journey focused on shedding
+                    excess weight through targeted exercise routines.
                   </p>
                   {/* **************************************************** */}
                   <div className='form-check py-4'>
@@ -39,13 +36,12 @@ const Services = () => {
                       id='defaultCheck1'
                     />
                     <label className='form-check-label' htmlFor='defaultCheck1'>
-                      <h5 className='ps-3'>Personal Training</h5>
+                      <h5 className='ps-3'>Body Building</h5>
                     </label>
                   </div>
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Ratione, quo ipsam repellat iure dicta maxime laboriosam
-                    iusto assumenda aspernatur omnis?
+                    Dive into the world of bodybuilding with our comprehensive
+                    program that combines progressive resistance training.
                   </p>
                   {/* **************************************************** */}
                   <div className='form-check py-4'>
@@ -56,13 +52,12 @@ const Services = () => {
                       id='defaultCheck1'
                     />
                     <label className='form-check-label' htmlFor='defaultCheck1'>
-                      <h5 className='ps-3'>Personal Training</h5>
+                      <h5 className='ps-3'>Strength Training</h5>
                     </label>
                   </div>
                   <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Ratione, quo ipsam repellat iure dicta maxime laboriosam
-                    iusto assumenda aspernatur omnis?
+                    Strengthen your body and mind with our strength training
+                    services to increase muscle power and endurance.
                   </p>
                   {/* **************************************************** */}
                 </div>
@@ -73,7 +68,11 @@ const Services = () => {
             </div>
             <div className='col-md-6'>
               <div className='services_col2'>
-                <img src={servicesImg} alt='' className='img-fluid' />
+                <img
+                  src={servicesImg}
+                  alt=''
+                  className='img-fluid services-image'
+                />
               </div>
             </div>
           </div>

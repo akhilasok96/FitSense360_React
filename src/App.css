@@ -283,6 +283,11 @@ a:focus {
     color: #fff;
 }
 
+.pose-buttons-wrapper{
+    display: flex;
+    gap: 20px;
+}
+
 /**********************************************************/
 .card-container {
     margin: 30px;
@@ -390,6 +395,13 @@ a:focus {
 
 .form-check-input:focus {
     box-shadow: none !important;
+}
+
+.services-image{
+    max-width: 85%;
+    height: 680px;
+    border-radius: 12px;
+    border: 1px solid var(--whiteshade-color);
 }
 
 /*********************** Services ***********************************/

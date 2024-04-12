@@ -104,7 +104,7 @@ const Testimonial = () => {
                             />
                           </div>
                           <div className='col-md-8'>
-                            <h5>Arjun Kartha</h5>
+                            <h5>Arjun Krishna</h5>
                             <p className='testimonial-p1 pt-1'>
                               Happy Customer
                             </p>
@@ -118,10 +118,9 @@ const Testimonial = () => {
                           <i className='fa-regular fa-star' />
                         </div>
                         <p className='testimonial-p2'>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Quas magnam fugiat quidem nesciunt aperiam
-                          minus. Similique iste distinctio suscipit debitis
-                          provident.
+                          "Thanks to this amazing team, I've not only lost
+                          weight but gained confidence and strength. The coaches
+                          are supportive and genuinely care about my success!"
                         </p>
                       </div>
                     </div>
@@ -138,7 +137,7 @@ const Testimonial = () => {
                             />
                           </div>
                           <div className='col-md-8'>
-                            <h5>Arjun Kartha</h5>
+                            <h5>Arjun Krishna</h5>
                             <p className='testimonial-p1 pt-1'>
                               Happy Customer
                             </p>
@@ -152,10 +151,9 @@ const Testimonial = () => {
                           <i className='fa-regular fa-star' />
                         </div>
                         <p className='testimonial-p2'>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Quas magnam fugiat quidem nesciunt aperiam
-                          minus. Similique iste distinctio suscipit debitis
-                          provident.
+                          "Thanks to this amazing team, I've not only lost
+                          weight but gained confidence and strength. The coaches
+                          are supportive and genuinely care about my success!"
                         </p>
                       </div>
                     </div>
@@ -172,7 +170,7 @@ const Testimonial = () => {
                             />
                           </div>
                           <div className='col-md-8'>
-                            <h5>Arjun Kartha</h5>
+                            <h5>Arjun Krishna</h5>
                             <p className='testimonial-p1 pt-1'>
                               Happy Customer
                             </p>
@@ -186,10 +184,9 @@ const Testimonial = () => {
                           <i className='fa-regular fa-star' />
                         </div>
                         <p className='testimonial-p2'>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Quas magnam fugiat quidem nesciunt aperiam
-                          minus. Similique iste distinctio suscipit debitis
-                          provident.
+                          "Thanks to this amazing team, I've not only lost
+                          weight but gained confidence and strength. The coaches
+                          are supportive and genuinely care about my success!"
                         </p>
                       </div>
                     </div>
@@ -206,7 +203,7 @@ const Testimonial = () => {
                             />
                           </div>
                           <div className='col-md-8'>
-                            <h5>Arjun Kartha</h5>
+                            <h5>Arjun Krishna</h5>
                             <p className='testimonial-p1 pt-1'>
                               Happy Customer
                             </p>
@@ -220,10 +217,9 @@ const Testimonial = () => {
                           <i className='fa-regular fa-star' />
                         </div>
                         <p className='testimonial-p2'>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Quas magnam fugiat quidem nesciunt aperiam
-                          minus. Similique iste distinctio suscipit debitis
-                          provident.
+                          "Thanks to this amazing team, I've not only lost
+                          weight but gained confidence and strength. The coaches
+                          are supportive and genuinely care about my success!"
                         </p>
                       </div>
                     </div>

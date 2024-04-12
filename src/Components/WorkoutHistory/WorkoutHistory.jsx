@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Navbar from "../LandingPage/Navbar";
 import Footer from "../LandingPage/Footer";
 
-// import { useNavigate } from "react-router-dom";
 import { useUserAuth } from "../../context/UserAuthContext";
 
 const WorkoutHistory = () => {
